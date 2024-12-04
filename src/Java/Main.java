@@ -2,6 +2,9 @@ package Java;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        VehicleController vc = new VehicleController();
+
+        System.out.println("------------------ Welcome to Grit Academys Car Shop ------------------");
+        vc.welcomeCustomer();
     }
 }
