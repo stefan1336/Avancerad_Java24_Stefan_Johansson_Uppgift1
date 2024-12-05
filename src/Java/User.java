@@ -24,8 +24,9 @@ public class User implements Rentable {
     }
 
     @Override
-    public void rentCar(String car) {
-        System.out.println("This is som information about your car: " + car);
+    public void rentCar(Vehicle vehicle, int totalCost, int carRentingDays) {
+        vehicle.driveCar(vehicle.getBrand());
+        vehicle.returnCar(vehicle,totalCost,carRentingDays);
     }
 
     @Override

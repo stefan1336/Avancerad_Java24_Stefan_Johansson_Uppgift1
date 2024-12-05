@@ -19,9 +19,9 @@ public abstract class Vehicle implements Rentable {
 
     public abstract void showCarDetails();
 
+    // Metod som är tom då den bara används i User
     @Override
-    public void rentCar(String car) {
-        System.out.println("Car information, " + car);
+    public void rentCar(Vehicle vehicle, int totalCost, int carRentingDays) {
     }
 
     @Override

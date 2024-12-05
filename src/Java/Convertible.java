@@ -12,10 +12,6 @@ public class Convertible extends Vehicle{
         this.roof = roof;
     }
 
-    public void setRoof(boolean roof) {
-        this.roof = roof;
-    }
-
     // Metod för att kunna välja om man vill köra med tak eller inte
     public void decideRoof(){
         while(true){

@@ -161,7 +161,7 @@ public class VehicleController {
                 garage.getVehicle(carType).remove(vehicle);
 
                 System.out.println("You've rented" + vehicle.toString() +  " for " + carRentingDays + " days"+ " that will cost you " + totalCost + "kr" );
-                rentCar(vehicle,totalCost,carRentingDays);
+                user.rentCar(vehicle,totalCost,carRentingDays);
             }
             else{
                 System.out.println("Come on, you cant rent a car for 0 days, stop trolling");
@@ -172,11 +172,6 @@ public class VehicleController {
             System.out.println("Please enter a number");
             daysToRent();
         }
-    }
-    
-    private void rentCar(Vehicle vehicle, int totalCost, int carRentingDays){
-        vehicle.driveCar(vehicle.getBrand());
-        vehicle.returnCar(vehicle,totalCost,carRentingDays);
     }
 
     // Metod där kvittot skapas i en ny map om den inte redan existerar annars uppdateras kvittot bara

@@ -1,4 +1,4 @@
 Grit Academy Car Shop Receipt:
-Car information:  Brand: Volvo, Reg-No: NMN 123, Price: 10000 kr
+Car information:  Brand: Ferrari, Reg-No: XXX 333, Price: 200000 kr
  Rented for: 6 days
- Cost: 60000 kr
+ Cost: 1200000 kr
