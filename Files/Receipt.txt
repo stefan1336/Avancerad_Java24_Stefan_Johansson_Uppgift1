@@ -1,0 +1,4 @@
+Grit Academy Car Shop Receipt:
+Car information:  Brand: Polestar, Reg-No: IAS 219, Price: 20300 kr
+ Rented for:4 days
+ Cost: 81200 kr

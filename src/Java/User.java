@@ -17,16 +17,15 @@ public class User implements Rentable {
     public void addCarToRent(Vehicle car){
         rentedCar.add(car);
         carCost += car.getPrice();
-        System.out.println("Add car to rent method");
     }
 
     public void addCarRentalCost(int cost) {
         carCost += cost;
     }
 
-    public int totalCost() {
-        return carCost;
-    }
+//    public int totalCost() {
+//        return carCost;
+//    }
 
     @Override
     public void rentCar(String car) {
@@ -34,8 +33,8 @@ public class User implements Rentable {
     }
 
     @Override
-    public void returnCar(String car) {
-        System.out.println("You just returned: " + car);
+    public void returnCar(Vehicle vehicle, int totalCost, int carRentingDays) {
+        System.out.println("You just returned: " + vehicle.toString());
     }
 
     @Override
@@ -45,7 +44,7 @@ public class User implements Rentable {
 
     @Override
     public void driveCar(String car) {
-        System.out.println("You just drive for: " + car);
+        System.out.println("You just drove for: " + car);
     }
 
     @Override

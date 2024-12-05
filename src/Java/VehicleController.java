@@ -1,14 +1,20 @@
 package Java;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.List;
 import java.util.Scanner;
 
 public class VehicleController {
     Scanner scanner = new Scanner(System.in);
-    private Garage garage;
     private String carType = "";
+    private int carRentingDays;
+    private int totalCost;
+
+    private Garage garage;
     private User user;
-    Vehicle vehicle;
+    private Vehicle vehicle;
 
     public VehicleController(){
         this.garage = new Garage();
@@ -126,34 +132,51 @@ public class VehicleController {
         try{
             user.carCost(vehicle.toString());
             System.out.println("For how manny days do you want to rent the car?");
-            int daysToRent = Integer.parseInt(scanner.nextLine());
-            if(daysToRent > 0){
-                int totalCost = vehicle.getPrice() * daysToRent;
+            carRentingDays = Integer.parseInt(scanner.nextLine());
+            if(carRentingDays > 0){
+                totalCost = vehicle.getPrice() * carRentingDays;
                 user.addCarRentalCost(totalCost);
                 user.addCarToRent(vehicle);
                 garage.getVehicle(carType).remove(vehicle);
 
-                System.out.println("You've rented" + vehicle.toString() +  " for " + daysToRent + " days"+ " that will cost you " + totalCost + "kr" );
-                rentCar(vehicle);
+                System.out.println("You've rented" + vehicle.toString() +  " for " + carRentingDays + " days"+ " that will cost you " + totalCost + "kr" );
+                rentCar(vehicle,totalCost,carRentingDays);
             }
             else{
                 System.out.println("Come on, you cant rent a car for 0 days, stop trolling");
+                daysToRent();
             }
         }
         catch (Exception e){
-            System.out.println("not working error");
+            System.out.println("Please enter a number");
+            daysToRent();
         }
     }
     
-    public void rentCar(Vehicle vehicle){
+    public void rentCar(Vehicle vehicle, int totalCost, int carRentingDays){
         vehicle.driveCar(vehicle.getBrand());
-//        driveCar(vehicle);
-//        returnCar(vehicle);
+        vehicle.returnCar(vehicle,totalCost,carRentingDays);
     }
 
-    private void returnCar(Vehicle vehicle) {
-        System.out.println("Test return car");
+    public void printReceipt(Vehicle vehicle, int totalCost,int carRentingDays) {
+        System.out.println("Here is your receipt, thank you for your Choosing Grit Academys Car Shop");
+        try{
+            File directory = new File("Files");
+            if(!directory.exists()){
+                directory.mkdir();
+            }
+            File file = new File(directory, "Receipt.txt");
+            FileWriter writer = new FileWriter(file);
+            BufferedWriter buffer = new BufferedWriter(writer);
+
+            buffer.write("Grit Academy Car Shop Receipt:\n");
+            buffer.write("Car information: " + vehicle.toString() +"\n");
+            buffer.write(" Rented for:" + carRentingDays + " days\n");
+            buffer.write(" Cost: " + totalCost + " kr");
+            buffer.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
-
-// Metod för kvitto som printas ut
