@@ -23,10 +23,6 @@ public class User implements Rentable {
         carCost += cost;
     }
 
-//    public int totalCost() {
-//        return carCost;
-//    }
-
     @Override
     public void rentCar(String car) {
         System.out.println("This is som information about your car: " + car);
@@ -51,7 +47,5 @@ public class User implements Rentable {
     public String getCarType() {
         return "";
     }
-
 }
 
-// Spara som ett kvitto i en textfil om informationen om den hyrda bilen

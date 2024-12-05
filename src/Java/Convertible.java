@@ -1,44 +1,52 @@
 package Java;
 
+import java.util.Scanner;
+
 public class Convertible extends Vehicle{
     private boolean roof;
+    String carRoof;
+    Scanner scanner = new Scanner(System.in);
 
     public Convertible(String brand, String registerNumber, int price, boolean roof) {
         super(brand, registerNumber, price);
-        this.roof = true;
+        this.roof = roof;
     }
 
     public void setRoof(boolean roof) {
         this.roof = roof;
     }
 
-    // Metod för att sätta på taket
-    private boolean activateRoof(){
-        if(!roof == true){
-            roof = true;
-        }
-        else{
-            roof = false;
-        }
-        return roof;
-    }
+    // Metod för att kunna välja om man vill köra med tak eller inte
+    public void decideRoof(){
+        while(true){
+            System.out.println("Do you want to remove roof? y/n");
+            String userInput = scanner.nextLine();
 
-    // Metod för att ta av taket
-    private boolean deactivateRoof(){
-        if(roof == true){
-            roof = false;
+            if(userInput.equalsIgnoreCase("y")){
+                this.roof = false;
+                System.out.println("Roof has been removed");
+                break;
+            }
+            else if(userInput.equalsIgnoreCase("n")){
+                System.out.println("I hope that there aint no rain coming");
+                break;
+            }
+            else {
+                System.out.println("Invalid input, please try again");
+            }
         }
-        else{
-            roof = true;
-        }
-        return roof;
     }
 
     @Override
     public void showCarDetails() {
-        System.out.println("Convertible: " + getBrand() + "Possibility to take of roof ");
+        if(roof){
+            carRoof = " The roof is on";
+        }
+        else {
+            carRoof = " The roof is removed";
+        }
+        System.out.println("You just picked up keys to a " + getBrand() + carRoof);
     }
-
 
     @Override
     public String getCarType() {

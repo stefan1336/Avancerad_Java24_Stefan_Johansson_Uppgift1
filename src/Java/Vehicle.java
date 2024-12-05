@@ -19,7 +19,6 @@ public abstract class Vehicle implements Rentable {
 
     public abstract void showCarDetails();
 
-
     @Override
     public void rentCar(String car) {
         System.out.println("Car information, " + car);
@@ -59,17 +58,62 @@ public abstract class Vehicle implements Rentable {
         String carType = this.getCarType();
 
         if(carType.equalsIgnoreCase("Convertible")){
-            System.out.println("The type of car you have rented is a " + carType);
-            System.out.println("You just drove a " + car + " WROOOOM i feel like a Hoolywood Star");
+            displayConvertible(car,carType);
         }
         else if(carType.equalsIgnoreCase("Electric")){
-            System.out.println("The type of car you have rented is a " + carType);
-            System.out.println("You just drove a " + car + " WROOOOM im doing something good for the climate");
+            displayElectric(car,carType);
         }
         else if(carType.equalsIgnoreCase("Limousine")){
-            System.out.println("The type of car you have rented is a " + carType);
-            System.out.println("You just drove a " + car + " WROOOOM im so rich!");
+            displayLimousine(car,carType);
         }
+    }
+
+    private void displayConvertible(String car, String carType){
+        System.out.println("The type of car you have rented is a " + carType);
+
+        System.out.println("                              _.-=\"_-         _");
+        System.out.println("                         _.-=\"   _-          | ||\"\"\"\"\"\"\"---._______     __..");
+        System.out.println("             ___.===\"\"\"\"-.______-,,,,,,,,,,,,`-''----\" \"\"\"\"\"       \"\"\"\"\"  __'");
+        System.out.println("      __.--\"\"     __        ,'                   o \\           __        [__|");
+        System.out.println(" __-\"\"=======.--\"\"  \"\"--.=================================.--\"\"  \"\"--.=======:");
+        System.out.println("]       [w] : /        \\ : |========================|    : /        \\ :  [w] :");
+        System.out.println("V___________:|          |: |========================|    :|          |:   _-\"");
+        System.out.println(" V__________: \\        / :_|=======================/_____: \\        / :__-\"");
+        System.out.println(" -----------'  \"-____-\"  `-------------------------------'  \"-____-\"");
+
+        System.out.println("You just drove a " + car + " YEAAAH i feel like a Hoolywood Star");
+    }
+
+    private void displayElectric(String car, String carType){
+        System.out.println("The type of car you have rented is a " + carType);
+
+        System.out.println("                       ____________________");
+        System.out.println("                     //|           |        \\");
+        System.out.println("                   //  |           |          \\");
+        System.out.println("      ___________//____|___________|__________()\\__________________");
+        System.out.println("    /__________________|_=_________|_=___________|_________________{}");
+        System.out.println("    [           ______ |           | .           | ==  ______      { }");
+        System.out.println("  __[__        /##  ##\\|           |             |    /##  ##\\    _{# }_");
+        System.out.println(" {_____)______|##    ##|___________|_____________|___|##    ##|__(______}");
+        System.out.println("             /  ##__##                              /  ##__##        \\");
+        System.out.println("----------------------------------------------------------------------------");
+
+        System.out.println("You just drove a " + car + " WROOOOM im doing something good for the climate");
+    }
+
+    private void displayLimousine(String car, String carType){
+
+        System.out.println("The type of car you have rented is a " + carType);
+
+        System.out.println("     ___________________________     |");
+        System.out.println("  _ /   ___/~~~    /------------\\    |");
+        System.out.println("_|_/_______________|______|____|__\\__|________,_");
+        System.out.println("\\ _________________|____-_|-______|_____________)");
+        System.out.println("<____//   \\|______|______|_______|_//   \\)_____>");
+        System.out.println("      \\___/                         \\___/");
+
+        System.out.println("You had a blast in a " + car + " WROOOOM im so rich!");
+
     }
 
     @Override

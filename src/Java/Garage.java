@@ -14,12 +14,7 @@ public class Garage   {
         vehicleType.get(type).add(vehicle);
     }
 
-    public List<String>getVehicleTypes() {
-        return new ArrayList<>(vehicleType.keySet());
-    }
-
     public List<Vehicle> getVehicle(String type) {
         return vehicleType.getOrDefault(type, new ArrayList<>());
     }
-
 }
